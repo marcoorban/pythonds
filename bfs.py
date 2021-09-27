@@ -14,8 +14,5 @@ def bfs(G, S):
         # for each edge (V,W) in V's adjacency, if W is unexplored, mark it as explored and add it to the queue
         for neighbor in V.getConnections():
             if not neighbor.isExplored():
-                neighbor.isExplored()
+                neighbor.setExplored()
                 Q.enqueue(neighbor)
-        
-        
-    
