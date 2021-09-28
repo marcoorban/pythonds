@@ -1,10 +1,11 @@
-from graphs import Graph, Vertex
+from graph import Graph, Vertex
 from basic import Queue
 
-def bfs(G, S):
+def bfs(G, s):
     # Mark S as explored, all other vertices are unexplored
-    start = G.getVertex(S)
+    start = G.getVertex(s)
     start.setExplored()
+    start.setDistance(0)
     # create a queue and initialize it with S
     Q = Queue()
     Q.enqueue(start)
@@ -15,4 +16,5 @@ def bfs(G, S):
         for neighbor in V.getConnections():
             if not neighbor.isExplored():
                 neighbor.setExplored()
+                neighbor.setDistance(V.getDistance() + 1)
                 Q.enqueue(neighbor)

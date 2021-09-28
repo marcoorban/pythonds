@@ -1,4 +1,4 @@
-from bfs import bfs
+from dfs import dfs
 from graph import Graph
 
 G = Graph()
@@ -21,7 +21,7 @@ G.addEdge('l', 'n')
 G.addEdge('o', 'p')
 G.addEdge('o', 'q')
 
-bfs(G, 'a')
+dfs(G, 'a')
 
 l = G.getVertex('l')
 p = G.getVertex('p')
