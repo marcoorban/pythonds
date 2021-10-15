@@ -50,6 +50,12 @@ class Vertex:
     def __str__(self):
         return str(self.id) + ' connectedTo: ' + str([x.id for x in self.connectedTo])
 
+    def showConnections(self):
+        connections = []
+        for vertex in self.connectedTo.keys():
+            connections.append(self.id + "->" + vertex.id)
+        print(connections)
+
     def getConnections(self):
         return self.connectedTo.keys()
 
@@ -63,6 +69,16 @@ class Graph:
     def __init__(self):
         self.vertList = {}
         self.numVertices = 0
+
+    def showConnections(self):
+        for key in self.vertList.keys():
+            vertex = self.getVertex(key)
+            vertex.showConnections()
+
+    def showDistances(self):
+        for key in self.vertList.keys():
+            vertex = self.getVertex(key)
+            print(vertex.id + ":" + str(vertex.getDistance()))
 
     def addVertex(self,key):
         self.numVertices = self.numVertices + 1
